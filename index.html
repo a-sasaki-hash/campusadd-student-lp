@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}</style>
+<title>Campus Add はじめてガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: start.campus-add.com と同じ流れ（FV→共感→無料なのに手厚い→できること→流れ→利用後の変化→先輩の声→FAQ→クロージング）。青空と雲、波の区切りで親しみやすく */
+:root {
+  --bg: #FFFFFF;
+  --sky: #E4F2FC;
+  --sky-deep: #CDE6F8;
+  --navy: #1B3F8B;
+  --blue: #2D6BD0;
+  --yellow: #FFD23F;
+  --ink: #1E2B3C;
+  --muted: #5A6779;
+  --card: #FFFFFF;
+  --line: #D6E3F0;
+  --on-navy: #FFFFFF;
+  --cloud: #FFFFFF;
+  --font-display: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1726; --sky: #16233A; --sky-deep: #1C2D4A; --navy: #0B1A36; --blue: #7FB0FF; --yellow: #FFD95E;
+    --ink: #E6EDF7; --muted: #A6B3C6; --card: #18243A; --line: #2A3A55; --on-navy: #FFFFFF; --cloud: #23324E; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1726; --sky: #16233A; --sky-deep: #1C2D4A; --navy: #0B1A36; --blue: #7FB0FF; --yellow: #FFD95E;
+  --ink: #E6EDF7; --muted: #A6B3C6; --card: #18243A; --line: #2A3A55; --on-navy: #FFFFFF; --cloud: #23324E; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.85; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.inner { max-width: 960px; margin-inline: auto; padding-inline: 16px; }
+.band { padding-block: 64px; }
+.band.sky { background: var(--sky); }
+.band.navy { background: var(--navy); color: var(--on-navy); }
+
+.test-bar { background: var(--ink); color: var(--bg); font-size: 13px; text-align: center; padding: 6px 16px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; font-family: var(--font-display); font-weight: 900; text-decoration: none; padding: 16px 34px; font-size: 18px; background: var(--yellow); color: #1E2B3C; box-shadow: 0 5px 0 #D9A900; transition: transform .12s, box-shadow .12s; }
+.btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 #D9A900; }
+.btn small { font-size: 12px; font-weight: 700; }
+.cta-row { display: flex; justify-content: center; margin-top: 36px; }
+
+.sec-title { text-align: center; display: grid; gap: 10px; margin-bottom: 36px; }
+.sec-title .en { font-family: var(--font-display); font-weight: 700; color: var(--blue); letter-spacing: .18em; font-size: 13px; }
+.sec-title h2 { font-size: clamp(24px, 4.2vw, 36px); line-height: 1.45; font-weight: 900; }
+.sec-title p { color: var(--muted); }
+.navy .sec-title .en { color: var(--yellow); }
+.navy .sec-title p { color: inherit; opacity: .85; }
+mark { background: linear-gradient(transparent 60%, var(--yellow) 60%); color: inherit; padding-inline: 2px; }
+
+/* FV */
+.fv { background: linear-gradient(180deg, var(--sky-deep) 0%, var(--sky) 100%); position: relative; overflow: hidden; padding-block: 40px 96px; }
+.fv .inner { display: grid; gap: 18px; justify-items: center; text-align: center; position: relative; z-index: 1; }
+.logo { font-family: var(--font-display); font-weight: 900; font-size: 20px; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+:root[data-theme="dark"] .logo { color: var(--ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo { color: var(--ink); } }
+.logo i { width: 26px; height: 26px; border-radius: 50%; border: 6px solid var(--blue); border-right-color: var(--yellow); display: inline-block; }
+.badge { display: inline-block; background: var(--navy); color: var(--on-navy); font-family: var(--font-display); font-weight: 700; border-radius: 999px; padding: 6px 18px; font-size: 15px; }
+.fv h1 { font-size: clamp(32px, 7vw, 64px); line-height: 1.3; font-weight: 900; color: var(--navy); }
+:root[data-theme="dark"] .fv h1 { color: var(--ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fv h1 { color: var(--ink); } }
+.fv h1 span { color: var(--blue); }
+.fv .lead { max-width: 32em; color: var(--muted); }
+.fv-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.fv-chip { background: var(--card); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 15px; box-shadow: 0 2px 0 var(--line); }
+.cloud { position: absolute; background: var(--cloud); border-radius: 999px; opacity: .95; }
+.cloud::before, .cloud::after { content: ""; position: absolute; background: inherit; border-radius: 50%; }
+.cloud::before { width: 55%; height: 160%; left: 14%; bottom: 20%; }
+.cloud::after { width: 38%; height: 120%; right: 12%; bottom: 25%; }
+.c1 { width: 180px; height: 48px; left: -30px; top: 90px; }
+.c2 { width: 140px; height: 38px; right: -10px; top: 50px; }
+.c3 { width: 220px; height: 56px; right: 6%; bottom: 70px; opacity: .7; }
+@media (prefers-reduced-motion: no-preference) {
+  .cloud { animation: drift 9s ease-in-out infinite alternate; }
+  .c2 { animation-duration: 11s; } .c3 { animation-duration: 13s; }
+  @keyframes drift { to { transform: translateX(18px); } }
+}
+.wave { display: block; width: 100%; height: 48px; }
+.wave path { fill: var(--bg); }
+.wave.to-sky path { fill: var(--sky); }
+.wave.to-navy path { fill: var(--navy); }
+
+/* 共感 */
+.worries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.bubble { background: var(--card); border: 2px solid var(--line); border-radius: 22px; padding: 22px 20px; text-align: center; font-weight: 700; font-size: 17px; position: relative; min-width: 0; }
+.bubble::after { content: ""; position: absolute; left: 50%; bottom: -12px; width: 20px; height: 20px; background: var(--card); border-right: 2px solid var(--line); border-bottom: 2px solid var(--line); transform: translateX(-50%) rotate(45deg); }
+.answer { text-align: center; margin-top: 40px; font-family: var(--font-display); font-weight: 900; font-size: clamp(20px, 3.4vw, 28px); line-height: 1.6; }
+
+/* 手厚いサポート */
+.reasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.reason { background: var(--card); border-radius: 22px; padding: 28px 22px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.reason .num { font-family: var(--font-display); font-weight: 900; color: var(--blue); font-size: 14px; letter-spacing: .1em; }
+.reason h3 { font-size: 20px; line-height: 1.5; font-weight: 900; }
+.reason p { color: var(--muted); font-size: 15px; }
+.big { font-family: var(--font-display); font-weight: 900; font-size: 44px; color: var(--blue); line-height: 1; }
+.big small { font-size: 16px; color: var(--ink); margin-left: 4px; }
+
+/* できること */
+.uses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.use { border: 2px solid var(--line); border-radius: 22px; padding: 26px 22px; display: grid; gap: 10px; align-content: start; min-width: 0; background: var(--card); }
+.use .tag { justify-self: start; background: var(--sky); color: var(--blue); font-weight: 700; border-radius: 8px; padding: 2px 10px; font-size: 13px; }
+.use h3 { font-size: 20px; font-weight: 900; }
+.use p { color: var(--muted); font-size: 15px; }
+.use a { color: var(--blue); font-weight: 700; font-size: 14px; }
+
+/* 流れ */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: s; }
+.flow li { list-style: none; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); border-radius: 20px; padding: 22px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.flow ol, ol.flow { padding: 0; margin: 0; }
+.flow li::before { counter-increment: s; content: "STEP " counter(s); font-family: var(--font-display); font-weight: 900; color: var(--yellow); letter-spacing: .08em; font-size: 14px; }
+.flow h3 { font-size: 18px; font-weight: 900; }
+.flow p { font-size: 14.5px; opacity: .88; }
+.flow-note { margin-top: 18px; font-size: 14px; opacity: .85; text-align: center; }
+
+/* 利用後 */
+.afters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.after { text-align: center; display: grid; gap: 12px; justify-items: center; min-width: 0; }
+.circle { width: 132px; height: 132px; border-radius: 50%; background: var(--sky); display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; color: var(--blue); font-size: 40px; }
+.after h3 { font-size: 20px; font-weight: 900; }
+.after p { color: var(--muted); font-size: 15px; max-width: 18em; }
+
+/* 先輩の声 */
+.voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.voice { background: var(--card); border-radius: 22px; padding: 24px 22px; display: grid; gap: 12px; align-content: start; min-width: 0; border: 2px dashed var(--line); }
+.voice .who { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--sky-deep); flex: none; }
+.voice .who b { display: block; }
+.voice .who span { font-size: 13px; color: var(--muted); }
+.voice p { color: var(--muted); font-size: 15px; }
+
+/* FAQ */
+.faq { display: grid; gap: 12px; max-width: 760px; margin-inline: auto; }
+details { background: var(--card); border-radius: 16px; padding: 4px 22px; border: 2px solid var(--line); }
+summary { cursor: pointer; list-style: none; font-weight: 700; padding-block: 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: baseline; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "Q"; font-family: var(--font-display); font-weight: 900; color: var(--blue); }
+summary::after { content: "+"; color: var(--blue); font-weight: 900; }
+details[open] summary::after { content: "−"; }
+details p { padding: 0 0 18px 26px; color: var(--muted); font-size: 15px; }
+
+/* クロージング */
+.closing { text-align: center; display: grid; gap: 18px; justify-items: center; }
+.closing h2 { font-size: clamp(24px, 4.4vw, 38px); line-height: 1.5; font-weight: 900; }
+.closing p { opacity: .9; }
+.company { margin-top: 40px; display: grid; gap: 4px; font-size: 14px; opacity: .85; justify-items: center; }
+.company .addr { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; }
+.copy { font: inherit; font-size: 12px; border-radius: 999px; padding: 4px 12px; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+
+@media (max-width: 760px) {
+  .worries, .reasons, .uses, .afters, .voices { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr 1fr; }
+  .band { padding-block: 48px; }
+}
+@media (max-width: 440px) { .flow { grid-template-columns: 1fr; } .btn { padding-inline: 24px; font-size: 16px; } }
+</style>
+</head>
+<body>
+
+<div class="test-bar">テスト用ページです。掲載内容は確認中のため、実際の運用と異なる場合があります。</div>
+
+<header class="fv">
+  <span class="cloud c1" aria-hidden="true"></span>
+  <span class="cloud c2" aria-hidden="true"></span>
+  <span class="cloud c3" aria-hidden="true"></span>
+  <div class="inner">
+    <div class="logo"><i aria-hidden="true"></i>Campus Add</div>
+    <span class="badge">北海道で就活する学生へ</span>
+    <h1>就活のこと、<br><span>なんでも</span>相談できる場所。</h1>
+    <p class="lead">ES・面接・自己分析から「まだ何も決まっていない」まで。国家資格を持つキャリアコンサルタントが、あなたのペースに合わせてサポートします。</p>
+    <div class="fv-chips">
+      <span class="fv-chip">学生は利用無料</span>
+      <span class="fv-chip">何度でも相談OK</span>
+      <span class="fv-chip">バスセンター前駅 徒歩1分</span>
+    </div>
+    <a class="btn" href="#line">LINEで友だち追加する</a>
+  </div>
+</header>
+
+<section class="band">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">FOR YOU</span>
+      <h2>就活って、何から始めればいいの？<br>と思ったあなた！</h2>
+    </div>
+    <div class="worries">
+      <div class="bubble">何から始めていいか<br>わからない</div>
+      <div class="bubble">ESや面接に<br>自信が持てない</div>
+      <div class="bubble">相談できる人が<br>いると良いな</div>
+    </div>
+    <p class="answer">その悩み、<mark>Campus Add</mark>で一緒に整理しませんか？</p>
+  </div>
+</section>
+
+<svg class="wave to-sky" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+<section class="band sky">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">WHY CAMPUS ADD</span>
+      <h2>利用料が<mark>無料</mark>なのに、<br>ひとりひとりを手厚くサポート！</h2>
+    </div>
+    <div class="reasons">
+      <div class="reason">
+        <span class="num">POINT 1</span>
+        <h3>国家資格を持つプロが個別にサポート</h3>
+        <div class="big">11<small>名在籍</small></div>
+        <p>キャリアコンサルタント有資格者が在籍。話したいことがまとまっていなくても、今の状況を一緒に整理します。</p>
+      </div>
+      <div class="reason">
+        <span class="num">POINT 2</span>
+        <h3>何度でも相談できて、自習にも使える</h3>
+        <p>選考の前に確認したいとき、少し迷ったとき。必要なタイミングで繰り返し相談できます。相談のあとは、そのまま館内でESを書いたり企業を調べたりできます。</p>
+      </div>
+      <div class="reason">
+        <span class="num">POINT 3</span>
+        <h3>なぜ無料なのですか？</h3>
+        <p>Campus Addは、北海道の学生を応援したいという協賛企業（スポンサー企業）のご協力で運営しています。そのため、相談料や施設利用料はかかりません。応募を求めることもありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" style="background: var(--sky)"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+
+<section class="band">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">WHAT YOU CAN DO</span>
+      <h2>Campus Addでできること</h2>
+      <p>相談の日も、集中して作業したい日も。目的に合わせて使えます。</p>
+    </div>
+    <div class="uses">
+      <div class="use">
+        <span class="tag">相談</span>
+        <h3>1対1の個別相談</h3>
+        <p>ES・面接・自己分析・企業選び・就活の進め方まで。方向性が決まっていない段階でも大丈夫です。</p>
+      </div>
+      <div class="use">
+        <span class="tag">自習</span>
+        <h3>自習・企業研究</h3>
+        <p>大きめのテーブルやソファ席で、ES作成や企業研究を進められます。就活関連の本や企業パンフレットも手に取れます。</p>
+      </div>
+      <div class="use">
+        <span class="tag">講座</span>
+        <h3>講座・イベント</h3>
+        <p>5日間で就活の基礎から学べる「メンプロ」をはじめ、ES・面接対策の講座や企業と話せるイベントを開催しています。</p>
+        <a href="https://start.campus-add.com/">メンプロの体験会はこちら</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave to-navy" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+<section class="band navy" id="flow">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">HOW TO START</span>
+      <h2>利用までの流れ</h2>
+      <p>来館は予約制です。相談の日も、自習だけの日も、LINEから予約してください。</p>
+    </div>
+    <ol class="flow">
+      <li><h3>LINEを友だち追加・かんたん登録</h3><p>お名前・学校名・卒業年度をお知らせください。登録は最初の1回だけです。</p></li>
+      <li><h3>開館日を確認して予約</h3><p>LINEで開館日を確認し、希望の日時を予約します。</p></li>
+      <li><h3>来館・受付</h3><p>予約した日時にお越しください。スタッフが受付と館内をご案内します。</p></li>
+      <li><h3>相談・自習</h3><p>相談のあとも、そのまま館内で就活を進められます。</p></li>
+    </ol>
+    <p class="flow-note">個別相談の日は、相談の前にカウンセリングシート、お帰りの際に振り返りシートへの入力をお願いしています（スマホで1分ほど）。自習のみの日は入力不要です。</p>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" style="background: var(--navy)"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+
+<section class="band">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">AFTER</span>
+      <h2>Campus Addを使ったあなたは…</h2>
+    </div>
+    <div class="afters">
+      <div class="after"><div class="circle">道</div><h3>やることが見える</h3><p>今の自分に必要な準備がわかり、何から手をつければいいか迷わなくなります。</p></div>
+      <div class="after"><div class="circle">話</div><h3>相談できる人ができる</h3><p>困ったときに頼れる場所があると、就活の不安がぐっと小さくなります。</p></div>
+      <div class="after"><div class="circle">自</div><h3>自信を持って選考へ</h3><p>準備を重ねた分だけ、自分の言葉で話せるようになります。</p></div>
+    </div>
+    <div class="cta-row"><a class="btn" href="#line">LINEで友だち追加する</a></div>
+  </div>
+</section>
+
+<svg class="wave to-sky" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+<section class="band sky">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">VOICE</span>
+      <h2>Campus Addを利用した先輩たちの声</h2>
+      <p>掲載準備中です（本人の原稿と掲載許可を確認後に掲載します）。</p>
+    </div>
+    <div class="voices">
+      <div class="voice"><div class="who"><span class="avatar" aria-hidden="true"></span><div><b>先輩 1</b><span>学年・卒年（確認中）</span></div></div><p>相談前の状況／利用して変わったこと／後輩へのひとこと</p></div>
+      <div class="voice"><div class="who"><span class="avatar" aria-hidden="true"></span><div><b>先輩 2</b><span>学年・卒年（確認中）</span></div></div><p>相談前の状況／利用して変わったこと／後輩へのひとこと</p></div>
+      <div class="voice"><div class="who"><span class="avatar" aria-hidden="true"></span><div><b>先輩 3</b><span>学年・卒年（確認中）</span></div></div><p>相談前の状況／利用して変わったこと／後輩へのひとこと</p></div>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" style="background: var(--sky)"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+
+<section class="band">
+  <div class="inner">
+    <div class="sec-title">
+      <span class="en">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details id="q-who" open><summary>誰でも利用できますか？</summary><p>大学生、大学院生、短期大学生、専門学校生、高等専門学校生が利用できます。学校名や学年は問いません。道外の学校に通っている方も、帰省のタイミングなどに北海道での就職について相談できます。「地元に戻るか迷っている」という段階でも大丈夫です。</p></details>
+      <details id="q-reserve"><summary>予約は必要ですか？</summary><p>はい。相談・自習どちらの場合も、LINEから事前にご予約ください。予約しておくことで、席や相談時間を確保してご案内できます。</p></details>
+      <details id="q-friends"><summary>友だちと一緒に利用できますか？</summary><p>はい。友だちと一緒に来館して、館内で就活を進められます。個別相談を希望する場合は、それぞれの相談内容に合わせてご案内します。</p></details>
+      <details id="q-civil"><summary>公務員志望でも相談できますか？</summary><p>民間企業への就職支援が中心のため、公務員試験に特化した対策は行っていません。民間企業との併願や進路の整理については、内容に応じて相談できます。</p></details>
+    </div>
+  </div>
+</section>
+
+<svg class="wave to-navy" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C240 0 480 48 720 24 C960 0 1200 48 1440 24 V48 H0Z"/></svg>
+<section class="band navy" id="line">
+  <div class="inner closing">
+    <h2>Campus Addで、あなたに会えることを<br>楽しみにしています！</h2>
+    <p>開館日の確認・来館の予約・ご質問は、公式LINEから受け付けています。</p>
+    <a class="btn" href="#line">LINEで友だち追加する <small>（テスト用・リンク未設定）</small></a>
+    <div class="company">
+      <b>Campus Add（キャンパスアド）／株式会社エス・イー・ジャパン</b>
+      <span class="addr"><span id="addr">〒060-0051 北海道札幌市中央区南1条東3丁目10-13 アイパスビル3階</span><button class="copy" id="copy-addr" type="button">住所をコピー</button></span>
+      <span>地下鉄東西線「バスセンター前駅」6番出口から徒歩約1分／TEL 011-577-1396</span>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById("copy-addr").addEventListener("click", function () {
+  var btn = this, el = document.getElementById("addr");
+  function done(m) { btn.textContent = m; setTimeout(function () { btn.textContent = "住所をコピー"; }, 1800); }
+  function sel() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  try { navigator.clipboard.writeText(el.textContent).then(function () { done("コピーしました"); }, function () { sel(); done("住所を選択しました"); }); }
+  catch (e) { sel(); done("住所を選択しました"); }
+});
+</script>
+</body>
+</html>
